@@ -93,4 +93,18 @@
         <developerConnection>scm:git:git@github.com:tehapo/Clara.git</developerConnection>
         <url>https://github.com/tehapo/Clara</url>
     </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus-repo</id>
+            <name>Internal Releases</name>
+            <url>http://nexus.primesource.local/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-repo</id>
+            <name>Internal Releases</name>
+            <url>http://nexus.primesource.local/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 </project>

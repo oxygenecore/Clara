@@ -2,15 +2,7 @@ package org.vaadin.teemu.clara.inflater;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.Stack;
+import java.util.*;
 import java.util.logging.Logger;
 
 import org.vaadin.teemu.clara.inflater.filter.AttributeFilter;
@@ -87,8 +79,9 @@ public class LayoutInflater {
     public Component inflate(InputStream xml,
             Map<String, Component> componentOverrideMap,
             ComponentProvider... additionalComponentProviders) {
-        List<ComponentProvider> providers = createDefaultComponentProviders(componentOverrideMap);
+        List<ComponentProvider> providers = new LinkedList<ComponentProvider>();
         providers.addAll(Arrays.asList(additionalComponentProviders));
+        providers.addAll(createDefaultComponentProviders(componentOverrideMap));
         return inflate(xml,
                 providers.toArray(new ComponentProvider[providers.size()]));
     }
